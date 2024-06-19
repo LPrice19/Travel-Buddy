@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIND</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2kHuwpKfAbDeY8DLpRXUX-Uo8klzRl1g&libraries=places" defer></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .find-trip-form {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .find-trip-form label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .find-trip-form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .find-trip-form button {
+            background-color: #536c9c;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .find-trip-form button:hover {
+            background-color: #405c85;
+        }
+
+        .trip-results {
+            margin-top: 20px;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: none;
+        }
+
+        .trip-results h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .trip-results p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            margin-top: 5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button button {
+            background-color: #536c9c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button button:hover {
+            background-color: #405c85;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h1>Travel Buddy</h1>
+
+
+<form id="findTripForm" class="find-trip-form">
+    <label for="findCity">Enter a city:</label>
+    <input type="text" id="findCity" name="findCity" placeholder="City" required>
+
+    <label for="findDate">Find Trips on Date:</label>
+    <input type="date" id="findDate" name="findDate" required>
+
+    <button type="button" onclick="findTrips()">Find Trips</button>
+</form>
+
+
+    <!--Interest HTML-->
+    <div id="tripResults" class="trip-results">
+        <h2>Trip Details</h2>
+        <p id="tripCity">City: N/A</p>
+        <p id="tripDate">Date: N/A</p>
+        <p id="tripDuration">Duration: N/A</p>
+        <p id="tripTemperature">Temperature: N/A</p>
+        <p id="tripRandomNumber" style="display: none;">Random Number: N/A</p>
+        <p id="expressedInterestCount">Expressed Interest: N/A</p>
+
+        
+        <button onclick="expressInterest()">Express Interest</button>
+        
+    </div>
+
+     <!-- API -->
+     <div id="pointsOfInterest" class="trip-esults">
+        <h2>Points of Interest</h2>
+        <ul id="poiList"></ul>
+    </div>
+
+    <div class="back-button">
+        <button onclick="goBack()">Return to Dashboard</button>
+    </div>
+
+
+   <script>
+    //Takes the trip details and sends to server for storage
+    async function expressInterest() {
+    const tripDetails = {
+        city: document.getElementById('tripCity').textContent.replace('City: ', ''),
+        proposedDate: document.getElementById('tripDate').textContent.replace('Date: ', ''),
+        duration: document.getElementById('tripDuration').textContent.replace('Duration: ', '').split(' ')[0],
+        temperature: document.getElementById('tripTemperature').textContent.replace('Temperature: ', ''),
+        randomNumber: document.getElementById('tripRandomNumber').textContent.replace('Random Number: ', ''),
+    };
+
+    try {
+        const response = await fetch('/expressInterest', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(tripDetails),
+        });
+
+        if (response.ok) {
+            
+            alert('Thanks for your interest!');
+            console.log('Interest expressed successfully');
+
+            // Calls the function and Update the expressed interst count
+            updateExpressedInterestCount(tripDetails.city);
+        } else {
+            console.error('Error expressing interest:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error expressing interest:', error.message);
+    }
+}
+
+function updateExpressedInterestCount(city) {
+    const tripResultsContainer = document.getElementById('tripResults');
+    const expressedInterestCountElement = document.getElementById('expressedInterestCount');
+
+
+    let currentCount = parseInt(expressedInterestCountElement.textContent.replace('Expressed Interest: ', '') || 0);
+
+    currentCount++;
+
+    expressedInterestCountElement.textContent = `Expressed Interest: ${currentCount}`;
+
+    tripResultsContainer.dataset.trip = city;
+    tripResultsContainer.dataset.expressedInterestCount = currentCount;
+}
+
+
+    // Function to save the trip details by sending an HTTP request to the server
+    async function saveInterest(tripDetails) {
+        try {
+            const response = await fetch('/expressInterest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(tripDetails),
+            });
+
+            if (response.ok) {
+                console.log('Trip details saved successfully.');
+            } else {
+                console.error('Error saving trip details:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    }
+
+      // find trips
+      async function findTrips() {
+        const city = document.getElementById('findCity').value;
+        const dateElement = document.getElementById('findDate');
+        const date = dateElement.valueAsDate;  
+
+        if (!date) {
+            console.error('Invalid date format');
+            return;
+        }
+
+        const formattedDate = date.toISOString().split('T')[0]; // Convert to "YYYY-MM-DD" format
+
+        try {
+            // Fetch trips data using the /getTrips endpoint
+            const response = await fetch(`/getTrips?city=${encodeURIComponent(city)}&date=${formattedDate}`);
+            const tripDetails = await response.json();
+
+            if (response.ok) {
+                displayTripResults(tripDetails);
+            } else {
+                console.error('Error finding trips:', tripDetails.error);
+
+            }
+        } catch (error) {
+            console.error('Error finding trips:', error.message);
+
+        }
+    }
+
+    function displayTripResults(tripDetails) {
+    const tripResultsContainer = document.getElementById('tripResults');
+
+   
+    document.getElementById('tripCity').textContent = `City: ${tripDetails.city}`;
+    document.getElementById('tripDate').textContent = `Date: ${tripDetails.proposedDate}`;
+    document.getElementById('tripDuration').textContent = `Duration: ${tripDetails.duration} days`;
+    document.getElementById('tripTemperature').textContent = `Temperature: ${tripDetails.temperature}`;
+
+  
+    const expressedInterestCount = tripDetails.expressedInterestCount || 0;
+    document.getElementById('expressedInterestCount').textContent = `Expressed Interest: ${expressedInterestCount}`;
+
+   
+    tripResultsContainer.style.display = 'block';
+
+    
+    tripResultsContainer.dataset.trip = tripDetails.city;
+    tripResultsContainer.dataset.expressedInterestCount = expressedInterestCount;
+
+    
+    initPlaces(tripDetails.city);
+}
+
+// Places API js
+function initPlaces(city) {
+            const placesService = new google.maps.places.PlacesService(document.createElement('div'));
+
+            
+            const request = {
+                query: `attractions in ${city}`,
+            };
+
+            placesService.textSearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    const poiList = document.getElementById('poiList');
+                  
+                    poiList.innerHTML = '';
+
+                   
+                    results.forEach(place => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = place.name;
+                        poiList.appendChild(listItem);
+                    });
+
+                  
+                    document.getElementById('pointsOfInterest').style.display = 'block';
+                } else {
+                    console.error('Places API request failed:', status);
+                }
+            });
+        }
+
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+
+
+
+
+</body>
+</html>

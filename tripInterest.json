@@ -1,0 +1,184 @@
+[
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "8",
+    "temperature": "5 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "8",
+    "temperature": "5 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "6",
+    "temperature": "N/A",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "liverpool",
+    "proposedDate": "2024-01-09",
+    "duration": "3",
+    "temperature": "6 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "liverpool",
+    "proposedDate": "2024-01-09",
+    "duration": "3",
+    "temperature": "6 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "8",
+    "temperature": "5 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-08",
+    "duration": "5",
+    "temperature": "N/A",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-09",
+    "duration": "3",
+    "temperature": "12 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-08",
+    "duration": "4",
+    "temperature": "4 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-08",
+    "duration": "4",
+    "temperature": "4 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-08",
+    "duration": "3",
+    "temperature": "12 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-08",
+    "duration": "3",
+    "temperature": "12 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "venice",
+    "proposedDate": "2024-01-11",
+    "duration": "2",
+    "temperature": "8 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "new york ",
+    "proposedDate": "2024-01-12",
+    "duration": "3",
+    "temperature": "3 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "8",
+    "temperature": "5 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "8",
+    "temperature": "5 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "amsterdam",
+    "proposedDate": "2024-01-11",
+    "duration": "1",
+    "temperature": "-3 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-09",
+    "duration": "3",
+    "temperature": "12 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "Munich",
+    "proposedDate": "2024-01-14",
+    "duration": "3",
+    "temperature": "-5 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "Barcelona",
+    "proposedDate": "2024-01-15",
+    "duration": "4",
+    "temperature": "11 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "London",
+    "proposedDate": "2024-01-17",
+    "duration": "3",
+    "temperature": "4 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-15",
+    "duration": "3",
+    "temperature": "15 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-17",
+    "duration": "5",
+    "temperature": "6 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "berlin",
+    "proposedDate": "2024-01-15",
+    "duration": "3",
+    "temperature": "3 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "Munich",
+    "proposedDate": "2024-01-19",
+    "duration": "5",
+    "temperature": "-1 °C",
+    "randomNumber": "N/A"
+  },
+  {
+    "city": "Barcelona",
+    "proposedDate": "2024-01-16",
+    "duration": "3",
+    "temperature": "15 °C",
+    "randomNumber": "N/A"
+  }
+]

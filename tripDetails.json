@@ -1,0 +1,364 @@
+[
+  {
+    "city": "Milan",
+    "proposedDate": "2023-12-01",
+    "duration": "20",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Milan",
+    "proposedDate": "2024-01-04",
+    "duration": "4",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Milan",
+    "proposedDate": "2024-01-25",
+    "duration": "4",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Barcelona",
+    "proposedDate": "2024-01-26",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Berlin",
+    "proposedDate": "2024-01-25",
+    "duration": "5",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "duration": "3",
+    "temperature": "N/A"
+  },
+  {
+    "city": "barcelona",
+    "duration": "5",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-04",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "milan",
+    "proposedDate": "2024-01-04",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-12",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Nottingham",
+    "proposedDate": "2024-01-09",
+    "duration": "4",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-08",
+    "duration": "5",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-04",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-06",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-09",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Birmingham",
+    "proposedDate": "2024-01-06",
+    "duration": "3",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Istanbul",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Derby",
+    "duration": "5",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-09",
+    "duration": "3",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Nottingham",
+    "proposedDate": "2024-01-09",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-04",
+    "duration": "3",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-06",
+    "duration": "2",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Dubai",
+    "proposedDate": "2024-01-06",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Dubai",
+    "proposedDate": "2024-01-06",
+    "duration": "10",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Dubai",
+    "proposedDate": "2024-01-06",
+    "duration": "1",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "6",
+    "temperature": "N/A"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "7",
+    "temperature": "N/A"
+  },
+  {
+    "city": "Milton Keynes",
+    "proposedDate": "2024-01-05",
+    "duration": "3",
+    "temperature": "8 °C"
+  },
+  {
+    "city": "burton on trent",
+    "proposedDate": "2024-01-06",
+    "duration": "4",
+    "temperature": "7 °C"
+  },
+  {
+    "city": "whistler",
+    "proposedDate": "2024-01-06",
+    "duration": "3",
+    "temperature": "1 °C"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-05",
+    "duration": "4",
+    "temperature": "15 °C"
+  },
+  {
+    "city": "Munich",
+    "proposedDate": "2024-01-06",
+    "duration": "4",
+    "temperature": "6 °C"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "8",
+    "temperature": "5 °C"
+  },
+  {
+    "city": "Milton Keynes",
+    "proposedDate": "2024-01-18",
+    "duration": "3",
+    "temperature": "6 °C"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-06",
+    "duration": "3",
+    "temperature": "5 °C"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-05",
+    "duration": "3",
+    "temperature": "5 °C"
+  },
+  {
+    "city": "liverpool",
+    "proposedDate": "2024-01-09",
+    "duration": "3",
+    "temperature": "6 °C"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-08",
+    "duration": "5",
+    "temperature": "3 °C"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-09",
+    "duration": "3",
+    "temperature": "12 °C"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-08",
+    "duration": "4",
+    "temperature": "4 °C"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-08",
+    "duration": "3",
+    "temperature": "12 °C"
+  },
+  {
+    "city": "venice",
+    "proposedDate": "2024-01-11",
+    "duration": "2",
+    "temperature": "8 °C"
+  },
+  {
+    "city": "Dubai",
+    "proposedDate": "2024-01-12",
+    "duration": "3",
+    "temperature": "21 °C"
+  },
+  {
+    "city": "new york ",
+    "proposedDate": "2024-01-12",
+    "duration": "3",
+    "temperature": "3 °C"
+  },
+  {
+    "city": "amsterdam",
+    "proposedDate": "2024-01-11",
+    "duration": "1",
+    "temperature": "-3 °C"
+  },
+  {
+    "city": "nottingham",
+    "proposedDate": "2024-01-12",
+    "duration": "2",
+    "temperature": "5 °C"
+  },
+  {
+    "city": "Munich",
+    "proposedDate": "2024-01-14",
+    "duration": "3",
+    "temperature": "-5 °C"
+  },
+  {
+    "city": "Barcelona",
+    "proposedDate": "2024-01-15",
+    "duration": "4",
+    "temperature": "11 °C"
+  },
+  {
+    "city": "London",
+    "proposedDate": "2024-01-17",
+    "duration": "3",
+    "temperature": "4 °C"
+  },
+  {
+    "city": "barcelona",
+    "proposedDate": "2024-01-15",
+    "duration": "3",
+    "temperature": "15 °C"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-17",
+    "duration": "5",
+    "temperature": "6 °C"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-17",
+    "duration": "5",
+    "temperature": "6 °C"
+  },
+  {
+    "city": "london",
+    "proposedDate": "2024-01-17",
+    "duration": "5",
+    "temperature": "6 °C"
+  },
+  {
+    "city": "berlin",
+    "proposedDate": "2024-01-15",
+    "duration": "3",
+    "temperature": "3 °C"
+  },
+  {
+    "city": "Munich",
+    "proposedDate": "2024-01-19",
+    "duration": "5",
+    "temperature": "-1 °C"
+  },
+  {
+    "city": "Barcelona",
+    "proposedDate": "2024-01-16",
+    "duration": "3",
+    "temperature": "15 °C"
+  }
+]

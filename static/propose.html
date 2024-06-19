@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propose</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+    
+        nav {
+            background-color: #536c9c;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between; 
+            padding: 10px 20px;
+        }
+    
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+    
+        .main-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    
+        .city-search {
+            margin-top: 20px;
+        }
+    
+        .city-search input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+    
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+    
+        input[type="date"],
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    
+        #temperature {
+            margin-top: 0px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        button {
+            margin-top: 0rem;
+            margin-left: 2rem;
+            background-color: #536c9c;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        button:hover {
+            background-color: #405c85;
+        }
+
+        .back-button {
+            margin-left: -1rem;
+            margin-top: 5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button button {
+            background-color: #536c9c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button button:hover {
+            background-color: #405c85;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <nav>
+        <a href="/dashboard">TravelBuddy</a>
+    </nav>
+
+    <h1>Travel Buddy</h1>
+    <p>Propose a Trip</p>
+
+  
+    <form id="proposeTripForm" action="/propose" method="post">
+
+        <label for="city">Enter a city:</label>
+        <div class="city-search">
+            <input type="text" id="city" name="city" placeholder="City" required>
+        </div>
+
+        <label for="date">Proposed Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="duration">Duration (days):</label>
+        <input type="number" id="duration" name="duration" min="1" required>
+
+        <p id="temperature">Temperature: N/A</p>
+
+        <button type="submit">Propose Trip</button>
+    </form>
+
+    <div class="back-button">
+        <button onclick="goBack()">Return to Dashboard</button>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const proposeTripForm = document.getElementById('proposeTripForm');
+           //updates the temp func
+            proposeTripForm.addEventListener('input', function () {
+                updateTemperature();
+            });
+    
+            proposeTripForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
+    
+                const city = document.getElementById('city').value;
+                const date = document.getElementById('date').value;
+                const duration = document.getElementById('duration').value;
+    
+                // weather FUNCTION
+                const weatherInfo = await fetchWeatherData(city, date, duration);
+    
+                
+                await saveTripDetails(city, date, duration, weatherInfo);
+            });
+            
+            //function for connecting the weather to input
+            async function fetchWeatherData(city, date, duration) {
+                const apiKey = 'c8fecb35895640489b683609241906';
+                const formattedDate = new Date(date).toISOString().split('T')[0];
+                const apiUrl = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${apiKey}&q=${encodeURIComponent(city)}&format=json&date=${formattedDate}`;
+    
+                try {
+                    const response = await fetch(apiUrl);
+                    const data = await response.json();
+    
+                    if (data.data && data.data.current_condition && data.data.current_condition.length > 0) {
+                        const weatherInfo = data.data.current_condition[0];
+    
+    
+                        const temperatureElement = document.getElementById('temperature');
+                        temperatureElement.textContent = `Temperature: ${weatherInfo.temp_C !== undefined ? `${weatherInfo.temp_C} °C` : 'N/A'}`;
+    
+                        return weatherInfo;
+                    } else {
+                        console.error('Error fetching weather data. Response structure may have changed:', data);
+                        
+                    }
+                } catch (error) {
+                    console.error('Error fetching weather data:', error);
+                    
+                }
+            }
+    
+            // Function to update temperature when input changes
+            function updateTemperature() {
+                const city = document.getElementById('city').value;
+                const date = document.getElementById('date').value;
+                const duration = document.getElementById('duration').value;
+    
+                
+                if (city && date && duration) {
+                    
+                    fetchWeatherData(city, date, duration);
+                }
+            }
+    
+            // send trip details to the server
+            async function saveTripDetails(city, date, duration, weatherInfo) {
+                const tripDetails = {
+                    city: city,
+                    date: date,
+                    duration: duration,
+                    temperature: weatherInfo.temp_C !== undefined ? `${weatherInfo.temp_C} °C` : 'N/A',
+                };
+    
+                try {
+                    
+                    const response = await fetch('/propose', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(tripDetails),
+                    });
+    
+                    if (!response.ok) {
+                        throw new Error(`Failed to save trip details: ${response.status} - ${response.statusText}`);
+                    }
+    
+                   
+                    alert('Trip Proposed!')
+                } catch (error) {
+                    console.error('Error saving trip details:', error);
+                }
+            }
+        });
+
+                    function goBack() {
+                    window.history.back();
+                }
+    </script>
+    
+    
+    
+</body>
+
+</html>
+        

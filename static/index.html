@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+        body {
+            background-size: cover;
+            background-color: #536c9c;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 4rem; /* Adjusted for responsiveness */
+            font-weight: bolder;
+            color: #c1c1c1;
+            margin-top: -2rem; /* Adjusted for responsiveness */
+            text-align: center; /* Centered on all screen sizes */
+            padding: 0 1rem; /* Added padding for better spacing */
+        }
+
+        a {
+            display: inline-block;
+            font-size: 1.5rem; /* Adjusted for responsiveness */
+            font-weight: bold;
+            color: #e8e8e8;
+            padding: 10px 20px; /* Increased padding for touch targets */
+            margin: 20px 0; /* Adjusted for responsiveness */
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem; /* Adjust font size for smaller screens */
+                margin-top: -1.5rem; /* Adjust margin top for smaller screens */
+            }
+
+            a {
+                font-size: 1.2rem; /* Adjust font size for smaller screens */
+                padding: 8px 16px; /* Adjust padding for smaller screens */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>travelBuddy.</h1>
+
+    <a href="/login">Please Login Here 👈</a>
+
+</body>
+</html>
